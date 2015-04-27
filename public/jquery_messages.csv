@@ -1,0 +1,80 @@
+Id,Title,Labels,Iteration,Iteration Start,Iteration End,Type,Estimate,Current State,Created at,Accepted at,Deadline,Requested By,Description,URL,Owned By
+93369638,User selects all messages,selection,,,,feature,,unscheduled,"Apr 27, 2015",,,Reyna DeLoge,"User clicks the checkbox button in the upper left.
+
+- Add the `selected` class to all `message` divs
+- Change the toolbar icon to `fa-check-square-o`",https://www.pivotaltracker.com/story/show/93369638,
+93369588,User deselects all messages,selection,,,,feature,,unscheduled,"Apr 27, 2015",,,Reyna DeLoge,"If all messages are selected, a user can deselect all messages but clicking the ""select all"" button again.
+
+- Remove the `selected` class from all `message` divs
+- Change the toolbar icon to `fa-check-square`",https://www.pivotaltracker.com/story/show/93369588,
+93369558,User can select an individual message,selection,,,,feature,,unscheduled,"Apr 27, 2015",,,Reyna DeLoge,"- Add the `selected` class to the message div
+- The following elements should become enabled
+  - ""Mark as read""
+  - ""Mark as unread""
+  - ""Apply Label""
+  - ""Remove Label""
+- If all messages are selected
+  - Checkbox in the toolbar should get the `fa-check-square-o` class
+- If some messages are still unselected
+  - Checkbox in the toolbar should get the `fa-minus-square-o` class",https://www.pivotaltracker.com/story/show/93369558,
+93369522,User can unselect an individual message,selection,,,,feature,,unscheduled,"Apr 27, 2015",,,Reyna DeLoge,"- Remove the `selected` class from the message div
+- If all messages are unselected
+  - The following elements should become disabled
+    - ""Mark as read""
+    - ""Mark as unread""
+    - ""Apply Label""
+    - ""Remove Label""
+  - Checkbox in the toolbar should get the ""fa-square-o"" class
+- If some messages are still unselected
+  - Checkbox in the toolbar should get the ""fa-minus-square-o"" class",https://www.pivotaltracker.com/story/show/93369522,
+93369480,User can select all messages if some are unselected,selection,,,,feature,,unscheduled,"Apr 27, 2015",,,Reyna DeLoge,"If a user clicks ""Select All"", then deselects an individual message, then the ""Select All"" checkbox should be in its middle state (`fa-minus-square-o`).
+
+If a user clicks the button at this point, it should still select all messages.",https://www.pivotaltracker.com/story/show/93369480,
+93369420,User can star a message,stars,,,,feature,,unscheduled,"Apr 27, 2015",,,Reyna DeLoge,"User clicks the star next to a message
+
+- Remove the `fa-star-o` class and add the `fa-star` class",https://www.pivotaltracker.com/story/show/93369420,
+93369390,User can unstar a message,stars,,,,feature,,unscheduled,"Apr 27, 2015",,,Reyna DeLoge,"User clicks the star next to a message
+
+- Remove the `fa-star` class and add the `fa-star-o` class",https://www.pivotaltracker.com/story/show/93369390,
+93369324,User can delete messages,deletion,,,,feature,,unscheduled,"Apr 27, 2015",,,Reyna DeLoge,"User selects one or more messages and click the ""Trash"" button
+
+- To all the `.message` divs that are selected
+  - Remove the message div from the dom
+- Update the unread count to be accurate (in case you deleted an unread message)
+- Disable all of the toolbar buttons that should be disabled",https://www.pivotaltracker.com/story/show/93369324,
+93369266,Message deletions are sent to the server,"ajax, deletion",,,,feature,,unscheduled,"Apr 27, 2015",,,Reyna DeLoge,Make an AJAX call,https://www.pivotaltracker.com/story/show/93369266,
+93369200,User can mark selected messages as read,read/unread,,,,feature,,unscheduled,"Apr 27, 2015",,,Reyna DeLoge,"User selects one or more messages and clicks ""Mark As Read""
+
+- To all the `.message` divs that are selected
+  - Add the `read` class
+  - Remove the `unread` class
+- Update the unread message count in the upper right
+  - ""1 unread message"" if there's only one left
+  - ""n unread messages"" if there's more than one left",https://www.pivotaltracker.com/story/show/93369200,
+93369154,User can mark selected messages as unread,read/unread,,,,feature,,unscheduled,"Apr 27, 2015",,,Reyna DeLoge,"User selects one or more messages and clicks ""Mark As Unread""
+
+- To all the `.message` divs that are selected
+  - Remove the `read` class
+  - Add the `unread` class
+- Update the unread message count in the upper right
+  - ""1 unread message"" if there's only one left
+  - ""n unread messages"" if there's more than one left",https://www.pivotaltracker.com/story/show/93369154,
+93369078,User can apply labels to selected messages,labels,,,,feature,,unscheduled,"Apr 27, 2015",,,Reyna DeLoge,"User selects one or more messages and chooses an option from ""Apply Label""
+
+- To all the `.message` divs that are selected
+  - Add a label with the selected name (do not add duplicates)
+- Reset the dropdown to say ""Add a Label"" (that is, select the first option again)",https://www.pivotaltracker.com/story/show/93369078,
+93369038,User can remove labels from selected messages,labels,,,,feature,,unscheduled,"Apr 27, 2015",,,Reyna DeLoge,"User selects one or more messages and chooses an option from ""Remove Label""
+
+- To all the `.message` divs that are selected
+  - Remove the label that matches that name (if the selected message doesn't have the label, it's ok - just do nothing )
+- Reset the dropdown to say ""Remove a Label"" (that is, select the first option again)",https://www.pivotaltracker.com/story/show/93369038,
+93368962,When a user stars/unstars a message it's sent to the server,ajax,,,,feature,,unscheduled,"Apr 27, 2015",,,Reyna DeLoge,You can get the url from the `.message` div's `data-message-url` attribute.,https://www.pivotaltracker.com/story/show/93368962,
+93368902,"When a user deletes messages, they are deleted from the server",ajax,,,,feature,,unscheduled,"Apr 27, 2015",,,Reyna DeLoge,NOTE: you'll need to pass an array of ids to the server for this to work.,https://www.pivotaltracker.com/story/show/93368902,
+93368864,"When a user marks messages as read, it is recorded on the server","ajax, read/unread",,,,feature,,unscheduled,"Apr 27, 2015",,,Reyna DeLoge,"When a user marks messages as read, it is recorded on the server",https://www.pivotaltracker.com/story/show/93368864,
+93368714,"When a user marks messages as unread, it is recorded on the server","ajax, read/unread",,,,feature,,unscheduled,"Apr 27, 2015",,,Reyna DeLoge,"When a user marks messages as unread, it is recorded on the server",https://www.pivotaltracker.com/story/show/93368714,
+93368656,"When a user adds labels, they are added on the server",ajax,,,,feature,,unscheduled,"Apr 27, 2015",,,Reyna DeLoge,There's a lot of complexity here.  Good luck!,https://www.pivotaltracker.com/story/show/93368656,
+93368502,"When a user removes labels, they are removed on the server",ajax,,,,feature,,unscheduled,"Apr 27, 2015",,,Reyna DeLoge,There's also a lot of complexity here.  Good luck,https://www.pivotaltracker.com/story/show/93368502,
+93368384,Remember Selection,"",,,,feature,,unscheduled,"Apr 27, 2015",,,Reyna DeLoge,"Remember which messages were selected after page reload
+Do this on the client side, not the server side.
+_HINT_ - lookup SessionStorage",https://www.pivotaltracker.com/story/show/93368384,

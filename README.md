@@ -39,6 +39,12 @@ It may help to split your code up into multiple js files.
 
 ## Stories
 
+** Import stories in pivotal tracker**
+
+- Create new Pivotal Tracker Project
+-Click on Settings Gear --> Import CSV
+-file path /public/jquery-messages.csv
+
 ### Selection
 
 **User selects all messages**
