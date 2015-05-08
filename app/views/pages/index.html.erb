@@ -1,32 +1,40 @@
+
+<script charset="utf-8" type= "text/javascript" src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+
+{{!toggle}} and all check model: {{toggle}}, one check click: {{aCheck}}, a check {{thisCheck}}
+
+
 <div class="row toolbar">
   <div class="col-md-10">
     <button class="btn btn-default">
-      <i class="fa fa-square-o"></i>
+      <i class="fa fa-square-o" ng-click= "toggle = !toggle"
+      ng-class="{'fa-check-square-o' : toggle, 'fa-square-o' : !toggle}" ng-model= "toggle"
+      ></i>
     </button>
 
-    <button class="btn btn-default" disabled="disabled">
+    <button class="btn btn-default" ng-disabled="!toggle, !aCheck" >
       Mark As Read
     </button>
 
-    <button class="btn btn-default" disabled="disabled">
+    <button class="btn btn-default" ng-disabled="!toggle">
       Mark As Unread
     </button>
 
-    <select class="form-control apply-label" disabled="disabled">
+    <select class="form-control apply-label" ng-disabled="!toggle">
       <option>Apply label</option>
       <option value="dev">dev</option>
       <option value="personal">personal</option>
       <option value="gschool">gschool</option>
     </select>
 
-    <select class="form-control remove-label" disabled="disabled">
+    <select class="form-control remove-label" ng-disabled="!toggle">
       <option>Remove label</option>
       <option value="dev">dev</option>
       <option value="personal">personal</option>
       <option value="gschool">gschool</option>
     </select>
 
-    <button class="btn btn-default" disabled="disabled">
+    <button class="btn btn-default" ng-disabled="!toggle">
       <i class="fa fa-trash-o"></i>
     </button>
   </div>
@@ -38,13 +46,35 @@
   </div>
 </div>
 
+<script>
+angular.module('checkboxExample', [])
+.controller('ExampleController', ['$scope', function($scope) {
+  $scope.selectedCounter = 0;
+  $scope.change = function (item) {
+    if (item.selected) {
+      $scope.selectedCounter++
+    } else {
+      $scope.selectedCounter--
+    }
+  };
+
+  };
+}]);
+
+
+
+
+</script>
+({{selectedCounter}})
 <div data-section="messages">
   <% @messages.each do |message| %>
-    <div data-message-url="<%= message_path(message) %>" class="row message <%= message.read ? 'read' : 'unread' %>">
+    <div data-message-url="<%= message_path(message) %>" class="row message <%= message.read ? 'read' : 'unread' %>"
+      ng-class = "{selected : toggle, selected : thisCheck<%= message.id %> }">
       <div class="col-md-1">
         <div class="row">
           <div class="col-md-2">
-            <input type="checkbox">
+            <input type="checkbox" ng-checked="toggle"
+            ng-click= "thisCheck<%= message.id %> = !thisCheck<%= message.id %>" ng-model="item.selected" ng-change="change(item)">
           </div>
           <div class="col-md-2">
             <i class="star fa <%= message.starred ? 'fa-star' : 'fa-star-o' %>"></i>
